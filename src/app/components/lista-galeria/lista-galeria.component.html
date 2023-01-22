@@ -1,1 +1,38 @@
-<p>lista-galeria works!</p>
+<div>
+  <div class="div-input" *ngIf="!verGaleria">
+    <input type="text" (input)="search($event)" placeholder="Pesquisar">
+  </div>
+  <div *ngIf="!verGaleria" class="container">
+    <div *ngFor="let desenhos of images" class="zoom">
+      <img src="{{ desenhos.image.url }}" alt="Imagem de Super-Heróis" />
+      <div class="div-name">
+        <h2>{{ desenhos.name }}</h2>
+      </div>
+      <div class="div-dados">
+        <ul>
+          <li [ngClass]="desenhos.powerstats.combat == 'null' ? 'animacao':''">Combate - {{ desenhos.powerstats.combat == 'null' ? 'Não Existe Poder': desenhos.powerstats.combat }}</li>
+          <li [ngClass]="desenhos.powerstats.durability == 'null' ? 'animacao':''">Durabilidade - {{ desenhos.powerstats.durability == 'null' ? 'Não Existe Poder': desenhos.powerstats.combat}}</li>
+          <li [ngClass]="desenhos.powerstats.intelligence == 'null' ? 'animacao':''">Inteligencia - {{ desenhos.powerstats.intelligence == 'null' ? 'Não Existe Poder': desenhos.powerstats.intelligence}}</li>
+          <li [ngClass]="desenhos.powerstats.power == 'null' ? 'animacao':''">Poder - {{ desenhos.powerstats.power == 'null' ? 'Não Existe Poder': desenhos.powerstats.power}}</li>
+          <li [ngClass]="desenhos.powerstats.speed == 'null' ? 'animacao':''">Velocidade - {{ desenhos.powerstats.speed == 'null' ? 'Não Existe Poder': desenhos.powerstats.speed}}</li>
+          <li [ngClass]="desenhos.powerstats.strength == 'null' ? 'animacao':''">Estrategia - {{ desenhos.powerstats.strength == 'null' ? 'Não Existe Poder': desenhos.powerstats.strength}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-button" *ngIf="verGaleria">
+  <div class="loading-table" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <div>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Galeria"
+      (click)="AbrirImagens()"
+    ></button>
+  </div>
+</div>
