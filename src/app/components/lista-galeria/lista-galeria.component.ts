@@ -8,8 +8,8 @@ import { ServiceImagensService } from 'src/app/service/service-imagens.service';
   styleUrls: ['./lista-galeria.component.scss'],
 })
 export class ListaGaleriaComponent implements OnInit {
-  images!: Galeria[];
-  allImages!:Galeria[];
+  images: Galeria[] = [];
+  allImages:Galeria[] = [];
   verGaleria: boolean = true;
   loading: boolean = false;
 
@@ -31,7 +31,7 @@ export class ListaGaleriaComponent implements OnInit {
     this.loading = true;
     setTimeout(() =>{
       this.verGaleria = false;
-    },1500)
+    },1400)
   }
 
   search(e:Event):void{

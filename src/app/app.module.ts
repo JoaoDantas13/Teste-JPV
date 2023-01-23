@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaGaleriaComponent } from './components/lista-galeria/lista-galeria.component';
-import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,7 +16,7 @@ import { CardModule } from 'primeng/card';
 
 
 @NgModule({
-  declarations: [AppComponent, ListaGaleriaComponent, HeaderComponent],
+  declarations: [AppComponent, ListaGaleriaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
